@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>featureFlagTest</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@testable import &lt;#Package#&gt;
+import Testing
+
+struct &lt;#FlagName#&gt;FeatureFlagTests {
+    
+    @Test func &lt;#flagName#&gt;FeatureFlag() {
+        let sut = &lt;#Flag#&gt;()
+        #expect(sut.semaphoreKey == "&lt;#key#&gt;")
+        #expect(sut.defaultValue == false)
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>00C993B2-72AE-42A6-AF04-86DE5F3D16D3</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Creates a swift Testing struct for a feature flag</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Create Feature Flag Test</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

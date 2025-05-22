@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>createHeaderRegistration</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> let headerRegistration = UICollectionView.SupplementaryRegistration &lt;UICollectionViewListCell&gt;(elementKind: UICollectionView.elementKindSectionHeader) {
+            [weak self] (headerView, elementKind, indexPath) in
+            guard let self = self else { return }
+            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            var configuration = UIListContentConfiguration.groupedHeader()
+            
+            configuration.text = section.rawValue
+            configuration.textProperties.color = GovendaColor.textColor
+            
+            headerView.contentConfiguration = configuration
+        }
+        
+        dataSource.supplementaryViewProvider = { [weak self] (view, kind, index) in
+            guard let self = self else { return nil }
+            return self.collectionView.dequeueConfiguredReusableSupplementary(using:headerRegistration, for: index)
+        }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>7B0ADAF6-8B3C-4E89-93FE-98EE63521FBD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetPlatformFamily</key>
+	<string>All</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Create Header Registration</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

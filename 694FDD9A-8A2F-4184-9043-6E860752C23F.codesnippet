@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>SimpleListViewController</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>final class &lt;#name#&gt;: UIViewController {
+    private var dataSource: UICollectionViewDiffableDataSource&lt;Section, String&gt;! = nil
+    private var collectionView: UICollectionView! = nil
+    private let items = Array(1...100).map{"This is item \($0)"}
+    
+    enum Section: String {
+        case main
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = "List"
+        configureCollectionView()
+        configureDataSource()
+        applyInitialSnapshot()
+    }
+    
+    private func createLayout() -&gt; UICollectionViewLayout {
+        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        return UICollectionViewCompositionalLayout.list(using: config)
+    }
+    
+    private func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .systemBackground
+        view.addSubview(collectionView)
+    }
+    
+    private func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration&lt;UICollectionViewListCell, String&gt; { (cell, indexPath, item) in
+            var content = cell.defaultContentConfiguration()
+            content.text = item
+            cell.contentConfiguration = content
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource&lt;Section, String&gt;(collectionView: collectionView) {
+            (collectionView, indexPath, identifier) -&gt; UICollectionViewCell? in
+            
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        }
+    }
+    
+    private func applyInitialSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot&lt;Section, String&gt;()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items)
+        
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>694FDD9A-8A2F-4184-9043-6E860752C23F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Creates a UIViewController with a collectionview list using DiffableDataSource and CompositionalLayout</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>SimpleListViewController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
