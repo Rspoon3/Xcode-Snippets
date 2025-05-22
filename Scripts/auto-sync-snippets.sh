@@ -11,6 +11,9 @@ $FSWATCH -0 . | while read -d "" event
 do
   echo "Detected change at $(date)" >> "$LOG_FILE"
 
+  # Wait briefly to ensure new files are written completely
+  sleep 0.5
+
   git add -A
   git commit -m "Auto-sync updated snippets on $(date '+%Y-%m-%d %H:%M:%S')" >> "$LOG_FILE" 2>&1
 
