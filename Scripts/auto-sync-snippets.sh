@@ -8,6 +8,7 @@ echo "Sync watcher started at $(date)" >> "$LOG_FILE"
 cd "$REPO_DIR"
 
 $FSWATCH -0 --event Updated --event Created --event Removed --include "\.codesnippet$" --exclude ".*" . | while read -d "" event
+
 do
   echo "Detected change at $(date)" >> "$LOG_FILE"
 
