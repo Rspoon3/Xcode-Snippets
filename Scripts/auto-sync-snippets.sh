@@ -36,14 +36,14 @@ do
         
         if git push origin main >> "$LOG_FILE" 2>&1; then
           echo "SUCCESS: Pushed changes at $(date)" >> "$LOG_FILE"
-          /usr/local/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Snippets synced to GitHub ✅"
+          /opt/homebrew/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Snippets synced to GitHub ✅"
         else
           echo "ERROR: Push failed at $(date)" >> "$LOG_FILE"
-          /usr/local/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Git push failed ❌"
+          /opt/homebrew/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Git push failed ❌"
         fi
       else
         echo "ERROR: Commit failed at $(date)" >> "$LOG_FILE"
-        /usr/local/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Git commit failed ❌"
+        /opt/homebrew/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Git commit failed ❌"
       fi
     else
       echo "No staged changes found at $(date)" >> "$LOG_FILE"
