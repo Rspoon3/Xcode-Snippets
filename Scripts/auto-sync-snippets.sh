@@ -27,6 +27,8 @@ do
     # Add all changes
     git add -A >> "$LOG_FILE" 2>&1
     
+    /opt/homebrew/bin/terminal-notifier -title "Xcode Snippets Auto Sync" -message "Snippets synced to GitHub ✅"
+    
     # Check if there are staged changes
     if ! git diff --cached --quiet; then
       echo "Found staged changes, committing..." >> "$LOG_FILE"
