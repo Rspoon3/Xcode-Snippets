@@ -9,7 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>try? await Task.sleep(for: .seconds(&lt;#))</string>
+	<string>try? await Task.sleep(for: .seconds(&lt;#value#&gt;))</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>664DE012-C2DB-4EF9-93A2-4DD86D15CA6F</string>
 	<key>IDECodeSnippetLanguage</key>
