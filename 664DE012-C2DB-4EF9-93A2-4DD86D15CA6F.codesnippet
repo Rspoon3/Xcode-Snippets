@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string></string>
+	<string>sleepForSeconds</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>try? await Task.sleep(for: .seconds(4))</string>
+	<string>try? await Task.sleep(for: .seconds(&lt;#))</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>664DE012-C2DB-4EF9-93A2-4DD86D15CA6F</string>
 	<key>IDECodeSnippetLanguage</key>
